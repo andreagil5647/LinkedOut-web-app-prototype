@@ -7,7 +7,7 @@ interface Props {
 
 export default function Nav({ screen, setScreen }: Props) {
   const isGraph = screen === 'graph' || screen === 'updated_graph'
-  const isExplore = ['path_detail', 'expectation_check', 'reality_guides', 'reality_check', 'expectation_delta', 'organizations'].includes(screen)
+  const isExplore = ['path_detail', 'expectation_check', 'reality_guides', 'reality_check', 'expectation_delta'].includes(screen)
   const isCommunity = screen === 'community'
 
   return (

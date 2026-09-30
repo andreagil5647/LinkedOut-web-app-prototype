@@ -4,6 +4,46 @@ interface Props {
   setScreen: (s: Screen) => void
 }
 
+const loopSteps = [
+  {
+    label: 'Map',
+    title: 'Start with a messy map',
+    body: 'A degree rarely points to one job. The graph keeps several plausible futures visible at once.',
+  },
+  {
+    label: 'Check',
+    title: 'Ask about the parts you cannot Google',
+    body: 'Reality Guides answer the small practical questions that usually decide whether a path fits.',
+  },
+  {
+    label: 'Adjust',
+    title: 'Change the plan without starting over',
+    body: 'After each check-in, the graph updates. Uncertainty becomes part of the process instead of a failure state.',
+  },
+]
+
+const responsibilityPoints = [
+  {
+    title: 'No social scoreboard',
+    body: 'No rankings, streaks, follower counts, or public popularity loops.',
+  },
+  {
+    title: 'Room for uneven paths',
+    body: 'Work-first, research-first, undecided, and non-linear routes can all sit in the same map.',
+  },
+  {
+    title: 'Clear partner boundaries',
+    body: 'Sponsors can support access, but they cannot buy ranking or student data.',
+  },
+]
+
+const prototypeSignals = [
+  'Path graph',
+  'Guide profiles',
+  'Expectation check',
+  'Partner directory',
+]
+
 export default function Landing({ setScreen }: Props) {
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -96,6 +136,88 @@ export default function Landing({ setScreen }: Props) {
             <p className="font-display text-xl font-medium text-foreground" style={{ fontStyle: 'italic' }}>
               "What could you become, and what do you still need to understand before choosing?"
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-border bg-background">
+        <div className="max-w-5xl mx-auto px-4 py-10 sm:px-6 sm:py-12">
+          <div className="mb-6 max-w-2xl">
+            <div className="text-xs font-mono text-muted-foreground mb-2 uppercase tracking-wider">
+              What makes it different
+            </div>
+            <h2 className="font-display text-3xl font-medium text-foreground mb-2">
+              See, check, adjust.
+            </h2>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              LinkedOut treats career choice as something students can test in small steps, not a public identity they have to perform.
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-border bg-card">
+            {loopSteps.map((step, i) => (
+              <div
+                key={step.title}
+                className={`grid grid-cols-1 gap-2 p-5 sm:grid-cols-[7rem_1fr] sm:gap-5 ${
+                  i < loopSteps.length - 1 ? 'border-b border-border' : ''
+                }`}
+              >
+                <div className="text-xs font-mono uppercase tracking-wider text-primary">
+                  {step.label}
+                </div>
+                <div>
+                  <h3 className="mb-1 text-sm font-semibold text-foreground">{step.title}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{step.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-border bg-muted/40">
+        <div className="max-w-5xl mx-auto px-4 py-10 sm:px-6">
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_1.1fr] lg:items-start">
+            <div>
+              <div className="text-xs font-mono text-muted-foreground mb-2 uppercase tracking-wider">
+                Quiet guardrails
+              </div>
+              <h2 className="font-display text-3xl font-medium text-foreground mb-3">
+                Useful without becoming another feed.
+              </h2>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                The product keeps the social layer deliberately small: enough human context to make better choices, without turning uncertainty into content.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-border bg-card">
+              {responsibilityPoints.map(point => (
+                <div key={point.title} className="border-b border-border p-4 last:border-b-0">
+                  <h3 className="mb-1 text-sm font-semibold text-foreground">{point.title}</h3>
+                  <p className="text-xs leading-relaxed text-muted-foreground">{point.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-8 rounded-xl border border-border bg-card p-5">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <div className="text-xs font-mono text-muted-foreground mb-1 uppercase tracking-wider">
+                  Already clickable
+                </div>
+                <p className="text-sm font-medium text-foreground">
+                  The prototype covers the core student journey, from first uncertainty to an updated path.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {prototypeSignals.map(signal => (
+                  <span key={signal} className="rounded-md border border-border bg-muted px-2.5 py-1 text-xs text-muted-foreground">
+                    {signal}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

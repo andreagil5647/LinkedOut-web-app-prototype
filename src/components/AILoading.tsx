@@ -6,11 +6,11 @@ interface Props {
 }
 
 const steps = [
-  { label: 'Reading your interests and worries…', duration: 600 },
-  { label: 'Mapping career paths in Computer Engineering…', duration: 700 },
-  { label: 'Identifying convergence points…', duration: 800 },
-  { label: 'Connecting with Reality Guide data…', duration: 600 },
-  { label: 'Building your personal graph…', duration: 700 },
+  { label: 'Reading your interests and worries…', duration: 220 },
+  { label: 'Mapping career paths in Computer Engineering…', duration: 260 },
+  { label: 'Identifying convergence points…', duration: 280 },
+  { label: 'Connecting with Reality Guide data…', duration: 220 },
+  { label: 'Building your personal graph…', duration: 260 },
 ]
 
 export default function AILoading({ setScreen }: Props) {
@@ -25,8 +25,8 @@ export default function AILoading({ setScreen }: Props) {
         setActiveStep(idx)
         setTimeout(advance, steps[idx].duration)
       } else {
-        setTimeout(() => setDone(true), 500)
-        setTimeout(() => setScreen('graph'), 1100)
+        setTimeout(() => setDone(true), 180)
+        setTimeout(() => setScreen('graph'), 420)
       }
     }
     const timer = setTimeout(advance, steps[0].duration)

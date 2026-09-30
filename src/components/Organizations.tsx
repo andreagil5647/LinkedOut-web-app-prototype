@@ -16,7 +16,10 @@ const ORGS = [
     guides: 1,
     roles: ['Applied AI Engineer', 'ML Platform Engineer', 'Software Engineer'],
     logo: '🔮',
+    logoSrc: '/logos/novatech.svg',
     logoColor: '#F97316',
+    partnership: 'Founding sponsor',
+    sponsorship: ['Reality Guides', 'Office visits', 'Applied AI projects'],
   },
   {
     id: 'deepmind',
@@ -28,6 +31,7 @@ const ORGS = [
     guides: 1,
     roles: ['Research Engineer', 'Research Scientist', 'SWE (Infrastructure)'],
     logo: '◈',
+    logoSrc: '/logos/google-deepmind.svg',
     logoColor: '#3B82F6',
   },
   {
@@ -40,6 +44,7 @@ const ORGS = [
     guides: 1,
     roles: ['MSc in Computer Science', 'PhD (AI/ML)', 'Research Assistant'],
     logo: '◻',
+    logoSrc: '/logos/eth-zurich.svg',
     logoColor: '#10B981',
   },
   {
@@ -52,7 +57,25 @@ const ORGS = [
     guides: 1,
     roles: ['Data Scientist', 'ML Engineer', 'Product Engineer'],
     logo: '◎',
+    logoSrc: '/logos/spotify.svg',
     logoColor: '#1DB954',
+    partnership: 'Affiliate partner',
+    sponsorship: ['Career talks', 'Product AI Q&A', 'Portfolio reviews'],
+  },
+  {
+    id: 'codebridge',
+    name: 'CodeBridge Labs',
+    type: 'company',
+    location: 'Madrid, Spain / Remote',
+    description: 'Engineering consultancy helping early-career developers ship production software with senior teams.',
+    tags: ['Software Engineering', 'Mentorship', 'Consulting'],
+    guides: 2,
+    roles: ['Junior Software Engineer', 'Backend Engineer', 'Graduate Consultant'],
+    logo: 'CB',
+    logoSrc: '/logos/codebridge-labs.svg',
+    logoColor: '#0EA5A4',
+    partnership: 'Hiring partner',
+    sponsorship: ['Mock interviews', 'Graduate roles', 'Technical workshops'],
   },
 ]
 
@@ -60,6 +83,8 @@ const typeLabel: Record<string, string> = {
   company: 'Company',
   university: 'University',
 }
+
+const sponsorOrgs = ORGS.filter(org => org.partnership)
 
 export default function Organizations({ setScreen }: Props) {
   const [query, setQuery] = useState('')
@@ -84,6 +109,74 @@ export default function Organizations({ setScreen }: Props) {
             See what companies and universities look for, what roles they offer, and hear from people already there.
           </p>
         </div>
+
+        {/* Affiliates + sponsors */}
+        <section className="mb-8">
+          <div className="mb-3 flex items-end justify-between gap-4">
+            <div>
+              <div className="text-xs font-mono text-muted-foreground mb-1 uppercase tracking-wider">
+                Partner network
+              </div>
+              <h2 className="font-display text-2xl font-medium text-foreground">
+                Companies helping students see the work up close
+              </h2>
+            </div>
+            <span className="hidden text-xs text-muted-foreground sm:block">
+              Sponsors support access, not ranking
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
+            {sponsorOrgs.map(org => (
+              <button
+                key={org.id}
+                onClick={() => {
+                  setQuery(org.name)
+                  setFilter('all')
+                }}
+                className="group bg-card rounded-xl border border-border p-4 text-left transition-all hover:border-primary/30 hover:shadow-sm"
+              >
+                <div className="mb-4 flex items-start justify-between gap-3">
+                  <div
+                    className="flex h-10 w-24 flex-shrink-0 items-center justify-center rounded-lg bg-white px-2"
+                    style={{ border: `1.5px solid ${org.logoColor}30` }}
+                  >
+                    <img
+                      src={org.logoSrc}
+                      alt={`${org.name} logo`}
+                      className="max-h-7 max-w-full object-contain"
+                    />
+                  </div>
+                  <span className="rounded-md bg-secondary px-2 py-0.5 text-[10px] font-mono text-secondary-foreground">
+                    {org.partnership}
+                  </span>
+                </div>
+                <div className="mb-1 font-semibold text-foreground">{org.name}</div>
+                <div className="mb-3 text-xs text-muted-foreground">{org.location}</div>
+                <div className="flex flex-wrap gap-1.5">
+                  {org.sponsorship?.slice(0, 2).map(item => (
+                    <span
+                      key={item}
+                      className="rounded-md border border-border px-2 py-0.5 text-[10px] text-muted-foreground"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-4 text-xs font-medium text-primary group-hover:underline">
+                  View partner profile
+                </div>
+              </button>
+            ))}
+          </div>
+
+          <div className="mt-3 rounded-xl border border-border bg-muted/50 px-4 py-3">
+            <div className="flex flex-col gap-2 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+              <span className="font-medium text-foreground">How partners show up</span>
+              <span>They can fund guides and workshops. They cannot buy ranking or student data.</span>
+            </div>
+          </div>
+        </section>
 
         {/* Search + filter */}
         <div className="flex gap-3 mb-6 flex-wrap">
@@ -126,10 +219,14 @@ export default function Organizations({ setScreen }: Props) {
               {/* Header */}
               <div className="flex items-start gap-4 mb-4">
                 <div
-                  className="w-12 h-12 rounded-2xl flex items-center justify-center text-xl flex-shrink-0"
-                  style={{ background: `${org.logoColor}15`, border: `1.5px solid ${org.logoColor}30` }}
+                  className="w-24 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 bg-white px-2"
+                  style={{ border: `1.5px solid ${org.logoColor}30` }}
                 >
-                  <span style={{ color: org.logoColor }}>{org.logo}</span>
+                  <img
+                    src={org.logoSrc}
+                    alt={`${org.name} logo`}
+                    className="max-h-8 max-w-full object-contain"
+                  />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 flex-wrap mb-0.5">

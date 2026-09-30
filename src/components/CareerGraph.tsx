@@ -34,43 +34,43 @@ interface GraphEdge {
 const BASE_NODES: GraphNode[] = [
   {
     id: 'cs', label: 'Computer Engineering', sublabel: 'Your degree',
-    type: 'start', cx: 110, cy: 235, w: 172, h: 80,
+    type: 'start', cx: 120, cy: 235, w: 172, h: 80,
     interest: 5, understanding: 5, exposure: 5,
   },
   {
     id: 'swe', label: 'Software Engineer', sublabel: 'Industry · Work',
-    type: 'work', cx: 340, cy: 105, w: 162, h: 76,
+    type: 'work', cx: 460, cy: 105, w: 162, h: 76,
     interest: 3, understanding: 3, exposure: 2,
   },
   {
     id: 'msc', label: 'MSc in AI', sublabel: 'Academia · 1–2 yrs',
-    type: 'study', cx: 340, cy: 250, w: 162, h: 76,
+    type: 'study', cx: 460, cy: 250, w: 162, h: 76,
     interest: 4, understanding: 2, exposure: 1,
   },
   {
     id: 'phd_entry', label: 'PhD Research', sublabel: 'Academia · 3–4 yrs',
-    type: 'research', cx: 340, cy: 385, w: 162, h: 76,
+    type: 'research', cx: 460, cy: 385, w: 162, h: 76,
     interest: 1, understanding: 1, exposure: 0,
   },
   {
     id: 'backend', label: 'Backend Engineer', sublabel: 'Industry · Work',
-    type: 'work', cx: 582, cy: 50, w: 162, h: 76,
+    type: 'work', cx: 840, cy: 50, w: 162, h: 76,
     interest: 2, understanding: 3, exposure: 2,
   },
   {
     id: 'product', label: 'Product Engineer', sublabel: 'Industry · Work',
-    type: 'work', cx: 582, cy: 175, w: 162, h: 76,
+    type: 'work', cx: 840, cy: 175, w: 162, h: 76,
     interest: 2, understanding: 2, exposure: 1,
   },
   {
     id: 'applied_ai', label: 'Applied AI Engineer', sublabel: '2 paths converge here',
-    type: 'convergence', cx: 582, cy: 315, w: 168, h: 82,
+    type: 'convergence', cx: 840, cy: 315, w: 168, h: 82,
     interest: 5, understanding: 2, exposure: 1,
     highlighted: true,
   },
   {
     id: 'deep_research', label: 'Deep Research', sublabel: 'Academia · Long-term',
-    type: 'research', cx: 582, cy: 430, w: 162, h: 76,
+    type: 'research', cx: 840, cy: 430, w: 162, h: 76,
     interest: 1, understanding: 1, exposure: 0,
   },
 ]
@@ -146,7 +146,7 @@ export default function CareerGraph({ setScreen, copilotOpen, setCopilotOpen, up
     return () => clearTimeout(t)
   }, [])
 
-  const SVG_W = 820
+  const SVG_W = 1000
   const SVG_H = 490
 
   return (
@@ -211,13 +211,15 @@ export default function CareerGraph({ setScreen, copilotOpen, setCopilotOpen, up
           <div className="px-4 pb-8 sm:px-8">
             <div
               className={`relative transition-all duration-500 ${animated ? 'opacity-100' : 'opacity-0'}`}
-              style={{ width: SVG_W, height: SVG_H }}
+              style={{ width: '100%', minWidth: SVG_W, height: SVG_H }}
             >
               {/* SVG for edges */}
               <svg
                 className="absolute inset-0 pointer-events-none"
-                width={SVG_W}
+                width="100%"
                 height={SVG_H}
+                viewBox={`0 0 ${SVG_W} ${SVG_H}`}
+                preserveAspectRatio="none"
                 style={{ zIndex: 0 }}
               >
                 <defs>
@@ -247,6 +249,7 @@ export default function CareerGraph({ setScreen, copilotOpen, setCopilotOpen, up
                       fill="none"
                       stroke={isConfirm ? '#10B981' : isHi ? '#6C5CE7' : '#C9C6BE'}
                       strokeWidth={isConfirm || isHi ? 2.5 : 1.5}
+                      vectorEffect="non-scaling-stroke"
                       strokeDasharray={isHi || isConfirm ? undefined : '5,4'}
                       opacity={isDimmed ? 0.2 : isHi ? 0.85 : 0.55}
                       markerEnd={`url(#arrow-${isConfirm ? 'confirm' : isHi ? 'hi' : 'normal'})`}
@@ -268,9 +271,9 @@ export default function CareerGraph({ setScreen, copilotOpen, setCopilotOpen, up
                     key={node.id}
                     className="absolute cursor-pointer select-none"
                     style={{
-                      left: node.cx - node.w / 2,
+                      left: `${((node.cx - node.w / 2) / SVG_W) * 100}%`,
                       top: node.cy - node.h / 2,
-                      width: node.w,
+                      width: `${(node.w / SVG_W) * 100}%`,
                       height: node.h,
                       zIndex: 1,
                       opacity: isDimmed ? 0.3 : 1,

@@ -1,0 +1,11 @@
+{
+  "title": "LinkedOut",
+  "description": "Explore career possibilities after graduation with personalized paths, expert insights, and real experiences tailored for final-year university students.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

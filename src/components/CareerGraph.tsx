@@ -88,11 +88,11 @@ const EDGES: GraphEdge[] = [
 ]
 
 const typeStyle: Record<string, { bg: string; border: string; text: string; badge: string }> = {
-  start:       { bg: '#F0EFFE', border: '#9B8FEE', text: '#3B31B4', badge: '#6C5CE7' },
+  start:       { bg: '#FFF1E7', border: '#FDBA74', text: '#9A3412', badge: '#F97316' },
   work:        { bg: '#EBF1FF', border: '#AABDE8', text: '#1E3A8A', badge: '#3B82F6' },
   study:       { bg: '#FFF8E6', border: '#F0C95C', text: '#78530A', badge: '#F59E0B' },
   research:    { bg: '#EDFAF3', border: '#7DD3AB', text: '#145A38', badge: '#10B981' },
-  convergence: { bg: '#F5F0FF', border: '#6C5CE7', text: '#3B31B4', badge: '#6C5CE7' },
+  convergence: { bg: '#FFF7ED', border: '#F97316', text: '#9A3412', badge: '#F97316' },
 }
 
 function nodePath(nodes: GraphNode[], fromId: string, toId: string): string {
@@ -227,7 +227,7 @@ export default function CareerGraph({ setScreen, copilotOpen, setCopilotOpen, up
                     <polygon points="0 0, 8 3, 0 6" fill="#C9C6BE" />
                   </marker>
                   <marker id="arrow-hi" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-                    <polygon points="0 0, 8 3, 0 6" fill="#6C5CE7" />
+                    <polygon points="0 0, 8 3, 0 6" fill="#F97316" />
                   </marker>
                   <marker id="arrow-confirm" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
                     <polygon points="0 0, 8 3, 0 6" fill="#10B981" />
@@ -247,7 +247,7 @@ export default function CareerGraph({ setScreen, copilotOpen, setCopilotOpen, up
                       key={i}
                       d={d}
                       fill="none"
-                      stroke={isConfirm ? '#10B981' : isHi ? '#6C5CE7' : '#C9C6BE'}
+                      stroke={isConfirm ? '#10B981' : isHi ? '#F97316' : '#C9C6BE'}
                       strokeWidth={isConfirm || isHi ? 2.5 : 1.5}
                       vectorEffect="non-scaling-stroke"
                       strokeDasharray={isHi || isConfirm ? undefined : '5,4'}
@@ -360,11 +360,11 @@ export default function CareerGraph({ setScreen, copilotOpen, setCopilotOpen, up
       <div className="border-t border-border px-4 py-3 flex items-center gap-4 flex-wrap sm:px-8 sm:gap-6">
         <span className="text-xs text-muted-foreground font-mono">Dot scale = Interest (1–5)</span>
         <div className="flex items-center gap-1.5">
-          <Dots count={5} filled={5} color="#6C5CE7" />
+          <Dots count={5} filled={5} color="#F97316" />
           <span className="text-xs text-muted-foreground ml-1">High interest</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <Dots count={5} filled={2} color="#6C5CE7" />
+          <Dots count={5} filled={2} color="#F97316" />
           <span className="text-xs text-muted-foreground ml-1">Uncertain</span>
         </div>
         {!updated && (

@@ -44,7 +44,7 @@ export default function AILoading({ setScreen }: Props) {
               <circle
                 cx="28" cy="28" r="24"
                 fill="none"
-                stroke="#6C5CE7"
+                stroke="#F97316"
                 strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeDasharray="150.8"

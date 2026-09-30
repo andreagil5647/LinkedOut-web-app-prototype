@@ -106,10 +106,10 @@ export default function Community({ setScreen }: Props) {
   const tagColors: Record<string, string> = {
     "Master's": 'bg-amber-50 text-amber-700 border-amber-200',
     Work: 'bg-blue-50 text-blue-700 border-blue-200',
-    Decision: 'bg-purple-50 text-purple-700 border-purple-200',
+    Decision: 'bg-orange-50 text-orange-700 border-orange-200',
     Research: 'bg-emerald-50 text-emerald-700 border-emerald-200',
     PhD: 'bg-teal-50 text-teal-700 border-teal-200',
-    AI: 'bg-violet-50 text-violet-700 border-violet-200',
+    AI: 'bg-sky-50 text-sky-700 border-sky-200',
     Undecided: 'bg-orange-50 text-orange-700 border-orange-200',
     Career: 'bg-pink-50 text-pink-700 border-pink-200',
     Uncertainty: 'bg-red-50 text-red-700 border-red-200',

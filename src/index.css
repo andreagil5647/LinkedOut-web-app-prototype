@@ -8,16 +8,16 @@
   --color-foreground: #1C1B29;
   --color-card: #FFFFFF;
   --color-card-foreground: #1C1B29;
-  --color-primary: #6C5CE7;
+  --color-primary: #F97316;
   --color-primary-foreground: #FFFFFF;
-  --color-secondary: #F0EFFE;
-  --color-secondary-foreground: #5B4CD4;
+  --color-secondary: #FFF1E7;
+  --color-secondary-foreground: #9A3412;
   --color-muted: #F1EFE8;
   --color-muted-foreground: #807E96;
-  --color-accent: #FF7043;
+  --color-accent: #0EA5A4;
   --color-accent-foreground: #FFFFFF;
   --color-border: #E5E2D6;
-  --color-ring: #6C5CE7;
+  --color-ring: #F97316;
 
   --font-sans: 'Outfit', system-ui, sans-serif;
   --font-display: 'Fraunces', Georgia, serif;

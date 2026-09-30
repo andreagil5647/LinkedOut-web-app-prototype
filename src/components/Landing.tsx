@@ -11,7 +11,7 @@ export default function Landing({ setScreen }: Props) {
       <header className="flex items-center justify-between gap-4 px-4 py-5 sm:px-8 sm:py-6">
         <div className="flex items-center gap-2">
           <span className="font-display text-xl font-semibold text-foreground tracking-tight">
-            linked<span className="text-primary">out</span>
+            Linked<span className="text-primary">Out</span>
           </span>
         </div>
         <nav className="flex items-center gap-2 sm:gap-6">

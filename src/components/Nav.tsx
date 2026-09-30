@@ -18,7 +18,7 @@ export default function Nav({ screen, setScreen }: Props) {
           onClick={() => setScreen('graph')}
           className="flex-shrink-0 font-display text-lg font-semibold text-foreground tracking-tight"
         >
-          linked<span className="text-primary">out</span>
+          Linked<span className="text-primary">Out</span>
         </button>
 
         {/* Nav links */}

@@ -64,7 +64,7 @@ export default function Onboarding({ setScreen }: Props) {
         {/* Logo */}
         <div className="text-center mb-10">
           <span className="font-display text-2xl font-semibold text-foreground">
-            linked<span className="text-primary">out</span>
+            Linked<span className="text-primary">Out</span>
           </span>
         </div>
 

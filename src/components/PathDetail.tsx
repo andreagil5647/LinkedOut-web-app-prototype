@@ -48,7 +48,7 @@ const weekDays = [
 
 const tagColors: Record<string, string> = {
   engineering: 'bg-blue-50 text-blue-700 border-blue-200',
-  ml:          'bg-violet-50 text-violet-700 border-violet-200',
+  ml:          'bg-sky-50 text-sky-700 border-sky-200',
   team:        'bg-amber-50 text-amber-700 border-amber-200',
   planning:    'bg-orange-50 text-orange-700 border-orange-200',
   learning:    'bg-emerald-50 text-emerald-700 border-emerald-200',
@@ -104,7 +104,7 @@ export default function PathDetail({ setScreen }: Props) {
         <div className="flex items-start justify-between flex-wrap gap-4 mb-8">
           <div>
             <div className="flex items-center gap-2 mb-2 flex-wrap">
-              <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-violet-50 border border-violet-200 text-violet-700">Convergence point</span>
+              <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-700">Convergence point</span>
               <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700">Industry</span>
             </div>
             <h1 className="font-display text-4xl font-medium text-foreground">Applied AI Engineer</h1>

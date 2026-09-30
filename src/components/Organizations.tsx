@@ -16,7 +16,7 @@ const ORGS = [
     guides: 1,
     roles: ['Applied AI Engineer', 'ML Platform Engineer', 'Software Engineer'],
     logo: '🔮',
-    logoColor: '#6C5CE7',
+    logoColor: '#F97316',
   },
   {
     id: 'deepmind',
